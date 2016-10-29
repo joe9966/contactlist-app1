@@ -1,0 +1,60 @@
+<html ng-app="myapp">
+<head>
+   <meta charset="UTF-8">
+   <title> Contact List</title>
+ </head>
+ <body ng-controller="mycontroller">
+ 	<div>
+
+ 	<p><h1>Contact List</h1></p>
+     <table class="table">
+     <thead>
+     	<tr>
+     	    <th></th>
+     		<td>Name</td>
+     		<td>Email</td>
+     		<td>Mobile</td>
+     		<th>Actions</th>
+     	</tr>
+     </thead>
+     <tbody>
+           <tr> 
+           <td></td>
+           <td>
+           		Name:<input class="form-control" type="text" ng-model="contact.name">
+           </td>
+           <td>
+           		<span>Email</span><input class="form-control" type="email" ng-model="contact.email">
+           	</td>
+           	<td>
+           	     <span>Mobile</span><input  class="form-control" type="text" ng-model="contact.mobile">
+           	</td>
+           	<td>
+           	<input type="button" value="Add Contact" class="btn btn-primary" ng-click="addContact()">
+           	 </td>
+           	 <td>
+           	         <input type="button" value="update" class="btn btn-success" ng-click="updateContact()">
+           	 </td>
+           </tr>
+           <tr ng-repeat="contact in contactList">
+           		<!--<td><input type="checkbox"  ng-model="contact._id" name="chk"></td>-->
+           		<td>{{contact.name}}</td>
+           		<td>{{contact.email}}</td>
+           		<td>{{contact.mobile}}</td>
+           		<td>
+           	          <input type="button" value="Remove" class="btn btn-danger" ng-click="deleteContact(contact._id)">
+           	 </td>
+           	 <td>
+           	          <input type="button" value="Edit" class="btn btn-warning" ng-click="editContact(contact._id)">
+           	 </td>
+           	  
+           	</tr>
+     </tbody>
+     </table>
+     </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ <script src="./controller.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ </body>
+ </html>
